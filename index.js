@@ -1,8 +1,15 @@
 const baseUrl = "http://localhost:3000/albums"
 
 document.addEventListener('DOMContentLoaded', () => {
-    getAlbums();
-});
+    getAlbums()
+
+    const newAlbumForm = document.getElementById("new-album-form")
+
+    newAlbumForm.addEventListener("submit", (e) => 
+    createFormHandler(e))
+
+
+})
 
     const getAlbums = () => {
         fetch(baseUrl)
@@ -20,4 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('#album-container').innerHTML += albumMarkup
         })
     })
+}
+
+const createFormHandler = (e) => {
+    e.preventDefault();
+    console.log(e);
 }
