@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     newAlbumForm.addEventListener("submit", (e) => 
     createFormHandler(e))
 
-
 })
 
     const getAlbums = () => {
@@ -25,11 +24,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>`;
 
                 document.querySelector('#album-container').innerHTML += albumMarkup
+            })
         })
-    })
-}
+    }
 
-const createFormHandler = (e) => {
-    e.preventDefault();
-    console.log(e);
-}
+    const createFormHandler = (e) => {
+        e.preventDefault();
+        const titleInput = document.getElementById("input-title").value
+        const artistInput = document.getElementById("input-artist").value
+        const imageInput = document.getElementById("img-input").value
+        const genreId = parseInt(document.getElementById("genre-input").value)
+
+        postFetch(titleInput, artistInput, imageInput, genreId)
+    }
+
+    const postFetch = (title, artist, image_url, genre_id) => {
+        fetch(baseUrl, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(bodyData)
+        })
+        .then(res => res.json())
+        .then(album => {
+            console.log(album);
+        })
+
+    }
