@@ -4,23 +4,22 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <script type="text/javascript" src="index.js"></script>
+        <title>Vinyl Vault</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
         <div id="container">
-            <h1>Vinyl Vault</h1>
+            <h2>Welcome to Vinyl Vault</h2>
             <br>
             <div id="form-container">
                 <form id='new-album-form'>
-                    <h3>Add Vinyl to Vault:</h3>
+                    <h4>Add Vinyl to Vault:</h4>
                     <input type="text" name="title" value="" placeholder="Album Title">
-                    <br><br>
+                    <br>
                     <input type="text" name="artist" value="" placeholder="Artist Name">
-                    <br><br>
+                    <br>
                     <input type="text" name="image" value="" placeholder="Link to Image">
                     <br>
                     <p>Select a Genre:</p>
@@ -29,13 +28,13 @@
                         <option value="2">Jazz</option>
                         <option value="3">Country</option>
                     </select>
-                    <br><br>
-                    <input id='create-button' type="submit" name="submit" value="Add to Vault">
+                    <br>
+                    <button id='create-button' type="submit" form="form1" value="Submit">Add to Vault</button>
                 </form>
-                <br><br>
+                <br>
             </div>
                 <div id="album-container">
-                    <h2>Vinyl List:</h2>
+                    <h3>Vinyl List:</h3>
 
                 </div>
 
@@ -44,7 +43,7 @@
       
         
 
-       
+        <script type="text/javascript" src="index.js"></script>
         
     </body>
 </html>

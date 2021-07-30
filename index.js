@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(baseUrl)
         .then(res => res.json())
         .then(albums => {
-        albums.data.forEach(albums => {
+        albums.data.forEach(album => {
             const albumMarkup = `<div data=id=${album.id}>
                 <img src=${album.attributes.image_url}
-                height="200" width="250">
-                <h3>${album.attributes.title}</h3>
-                <h4>${album.attributes.artist}
+                height="120" width="120">
+                <h4>${album.attributes.title}</h4>
+                <h5>${album.attributes.artist}</h5>
                 <p>${album.attributes.genre.name}</p>
                 </div>`;
 
