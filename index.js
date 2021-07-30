@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const postFetch = (title, artist, image_url, genre_id) => {
+        const bodyData = {title, artist, image_url, genre_id}
         fetch(baseUrl, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -46,7 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(res => res.json())
         .then(album => {
-            console.log(album);
+            const albumData = album.data.attributes
+            const albumMarkup = `
+            <div data-id=${album.id}>
+                <img src=${albumData.image_url} height="120" width="120">
+                <h4>${albumData.title}</h4>
+                <h5>${albumData.artist}</h5>
+                <p>${albumData.genre.name}</p>
+            </div>
+            <br>`
+
+            document.querySelector('#album-container').innerHTML += albumMarkup;
         })
 
     }
