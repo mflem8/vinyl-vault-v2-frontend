@@ -1,6 +1,6 @@
-class Albums {
-    constructor() {
-        this.albums = []
-        this.adapter = new AlbumsAdapter()
-    }
-}
+// class Albums {
+//     constructor() {
+//         this.albums = []
+//         this.adapter = new AlbumsAdapter()
+//     }
+// }

@@ -1,9 +1,9 @@
 class AlbumsAdapter {
-    constructor() {
-        this.baseUrl = 'http://localhost:3000/albums'
-    }
+    // constructor() {
+    //     this.baseUrl = 'http://localhost:3000/albums'
+    // }
 
-    getAlbums() {
-        return fetch(this.baseUrl).then(res => res.json())
-    }
+    // getAlbums() {
+    //     return fetch(this.baseUrl).then(res => res.json())
+    // }
 }
