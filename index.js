@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(albums => {
             albums.forEach(album => {
+                
+                let newAlbum = new Album(album);
+
                 render(album);
             })
 
