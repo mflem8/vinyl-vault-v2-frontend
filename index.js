@@ -15,7 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(albums => {
         albums.data.forEach(album => {
-            const albumMarkup = `<div data=id=${album.id}>
+            render(album);
+            })
+        })
+    }
+
+    const render = (album) => {
+        const albumMarkup = `<div data=id=${album.id}>
                 <img src=${album.attributes.image_url}
                 height="120" width="120">
                 <h4>${album.attributes.title}</h4>
@@ -24,8 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>`;
 
                 document.querySelector('#album-container').innerHTML += albumMarkup
-            })
-        })
     }
 
     const createFormHandler = (e) => {
@@ -48,16 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(album => {
             const albumData = album.data.attributes
-            const albumMarkup = `
-            <div data-id=${album.id}>
-                <img src=${albumData.image_url} height="120" width="120">
-                <h4>${albumData.title}</h4>
-                <h5>${albumData.artist}</h5>
-                <p>${albumData.genre.name}</p>
-            </div>
-            <br>`
-
-            document.querySelector('#album-container').innerHTML += albumMarkup;
+            render(albumData);
         })
 
     }
