@@ -14,20 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(baseUrl)
         .then(res => res.json())
         .then(albums => {
-            albums.data.forEach(album => {
+            albums.forEach(album => {
                 render(album);
             })
-            .catch(error => console.log(error));
+
         })
     }
 
     const render = (album) => {
         const albumMarkup = `<div data=id=${album.id}>
-                <img src=${album.attributes.image_url}
+                <img src=${album.image_url}
                 height="120" width="120">
-                <h4>${album.attributes.title}</h4>
-                <h5>${album.attributes.artist}</h5>
-                <p>${album.attributes.genre.name}</p>
+                <h4>${album.title}</h4>
+                <h5>${album.artist}</h5>
+                <p>${album.genre.name}</p>
                 </div>`;
 
                 document.querySelector('#album-container').innerHTML += albumMarkup
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(res => res.json())
         .then(album => {
-            const albumData = album.data.attributes
+            // const albumData = album.data.attributes
             render(albumData);
         })
 
