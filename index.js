@@ -18,29 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 let newAlbum = new Album(album);
 
-                render(album);
+                document.querySelector('#album-container').innerHTML += newAlbum.render();
             })
 
         })
     }
 
-    const render = (album) => {
-        const albumMarkup = `<div data-id=${album.id}>
-                <img src=${album.image_url} height="120" width="120">
-                <h4>${album.title}</h4>
-                <h5>${album.artist}</h5>
-                <p>${album.genre.name}</p>
-                </div>`;
-
-                document.querySelector('#album-container').innerHTML += albumMarkup
-    }
-
     const createFormHandler = (e) => {
         e.preventDefault();
-        const titleInput = document.getElementById("title-input").value
-        const artistInput = document.getElementById("artist-input").value
-        const imageInput = document.getElementById("img-input").value
-        const genreId = parseInt(document.getElementById("genre-input").value)
+        const titleInput = document.querySelector("#title-input").value
+        const artistInput = document.querySelector("#artist-input").value
+        const imageInput = document.querySelector("#img-input").value
+        const genreId = parseInt(document.querySelector("#genre-input").value)
 
         postFetch(titleInput, artistInput, imageInput, genreId)
     }
