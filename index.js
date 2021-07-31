@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createFormHandler = (e) => {
         e.preventDefault();
-        const titleInput = document.getElementById("input-title").value
-        const artistInput = document.getElementById("input-artist").value
+        const titleInput = document.getElementById("title-input").value
+        const artistInput = document.getElementById("artist-input").value
         const imageInput = document.getElementById("img-input").value
         const genreId = parseInt(document.getElementById("genre-input").value)
 
@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const postFetch = (title, artist, image_url, genre_id) => {
         const bodyData = {title, artist, image_url, genre_id}
+
         fetch(baseUrl, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -54,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(res => res.json())
         .then(album => {
-            // const albumData = album.data.attributes
-            render(albumData);
+            const albumData = album.data
+            render();
         })
 
     }
