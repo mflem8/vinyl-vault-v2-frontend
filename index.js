@@ -14,9 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(baseUrl)
         .then(res => res.json())
         .then(albums => {
-        albums.data.forEach(album => {
-            render(album);
+            albums.data.forEach(album => {
+                render(album);
             })
+            .catch(error => console.log(error));
         })
     }
 
