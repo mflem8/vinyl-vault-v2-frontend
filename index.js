@@ -22,9 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const render = (album) => {
-        const albumMarkup = `<div data=id=${album.id}>
-                <img src=${album.image_url}
-                height="120" width="120">
+        const albumMarkup = `<div data-id=${album.id}>
+                <img src=${album.image_url} height="120" width="120">
                 <h4>${album.title}</h4>
                 <h5>${album.artist}</h5>
                 <p>${album.genre.name}</p>
