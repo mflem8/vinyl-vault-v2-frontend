@@ -1,5 +1,6 @@
 const baseUrl = "http://localhost:3000/albums"
 
+
 document.addEventListener('DOMContentLoaded', () => {
     getAlbums()
 
@@ -19,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 let newAlbum = new Album(album);
 
                 document.querySelector('#album-container').innerHTML += newAlbum.render();
-            })
 
+            })
         })
     }
 
@@ -45,7 +46,25 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(album => {
             const albumData = album.data
-            render();
-        })
+            let newAlbum = new Album(album);
 
+            document.querySelector('#album-container').innerHTML += newAlbum.render();
+        })
     }
+
+
+
+
+    
+
+ 
+
+   
+    
+
+
+
+    
+      
+
+
